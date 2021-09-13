@@ -34,7 +34,7 @@ app.post('/', (req, res) => {
               to: user.phoneNumber,
             })
             .then(() => console.log('Message sent'))
-            .catch((err) => console.log(err));
+            .catch((err) => console.log('error with twilio', err));
         }
       });
     return res.status(200).send('Message sent!');
