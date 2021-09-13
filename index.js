@@ -34,7 +34,7 @@ app.post('/', (req, res) => {
               to: user.phoneNumber,
             })
             .then(() => console.log('Message sent'))
-            .done();
+            .catch((err) => console.log(err));
         }
       });
     return res.status(200).send('Message sent!');
