@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const authRoutes = require('./routes/auth.js');
-const twilio = require('twilio');
 
 const PORT = process.env.PORT || 5000;
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -35,7 +34,7 @@ app.post('/', (req, res) => {
               to: user.phoneNumber,
             })
             .then(() => console.log('Message sent'))
-            .catch((err) => console.log(err));
+            .done();
         }
       });
     return res.status(200).send('Message sent!');
